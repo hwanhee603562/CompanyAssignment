@@ -10,7 +10,7 @@ public class BoardController {
 
 	@GetMapping( "/board" )
 	public String board() {
-		
+			
 		return "board";
 		
 	}
