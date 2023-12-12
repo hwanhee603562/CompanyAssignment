@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<link th:href="@{/css/signUp.css}" rel="stylesheet" >
+
+</head>
+<body>
+
+	<th:block th:replace="header :: headerFragment"></th:block>
+	
+	<div class="wrap">
+	
+		<h2 class="postHeader"> 회원가입 </h2>
+		
+		<form method="post" name="memberINfo" th:action="@{/postMember}" th:object="${MemberInfo}" th:csrf="${_csrf}">
+		
+			
+			<div class="inputWrap">
+				
+				<div class="nameBox"> 성명 <span class="inputNameBox"> <input type="text" name="mname"> </span> </div>
+				
+				<div> 아이디 <span class="inputIdBox"> <input type="text" name="mid"> </span> </div>
+				<div class="outputId"></div>
+				
+				<div> 비밀번호 <span class="inputPwdBox"> <input type="text" name="mpwd"> </span> </div>
+				<div class="outputPwd"></div>
+				
+				<div> 비밀번호 확인 <span class="inputPwdCheckBox"> <input type="text"> </span> </div>
+				<div class="outputPwdCheck"></div>
+				
+				<div> 이메일 <span class="inputEmailBox"> <input type="text" name="memail"> </span> </div>
+				<div class="outputEmail"></div>
+				
+				
+			</div>
+			
+			<div class="buttonBox">		
+				<input type="button" onclick="submit()" value="전송">
+			</div>
+			
+		</form>
+	
+	</div>
+	
+	<script src="./js/signUp.js" type="text/javascript"></script>
+
+</body>
+</html>

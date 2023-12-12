@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+
+.wrap{
+	width: 800px;
+	border-left: 1px solid #e8e8e8;
+	border-right: 1px solid #e8e8e8; 
+	margin: 0 auto;
+}
+
+
+.inputWrap{
+	padding-left: 186px;
+}
+
+
+.nameBox{
+	height: 50px;
+}
+
+.inputNameBox{
+	margin-left: 80px;
+	
+}
+.inputIdBox{
+	margin-left: 64px;
+}
+.inputPwdBox{
+	margin-left: 48px;
+}
+.inputPwdCheckBox{
+	margin-left: 11px;
+}
+.inputEmailBox{
+	margin-left: 64px;
+}
+
+.inputNameBox input{
+	width: 300px;
+	
+}
+.inputIdBox input{
+	width: 300px;
+}
+.inputPwdBox input{
+	width: 300px;
+}
+.inputPwdCheckBox input{
+	width: 300px;
+}
+.inputEmailBox input{
+	width: 300px;
+}
+
+
+.buttonBox{
+	margin: 0 auto;
+}
+
+
+
+.outputId{
+	height: 25px;
+}
+.outputPwd{
+	height: 25px;
+}
+.outputPwdCheck{
+	height: 25px;
+}
+.outputEmail{
+	height: 25px;
+}
+
+
+
+.buttonBox{
+	margin: 0 auto;
+}
+.postHeader{
+	width: 100px;
+	margin: 0 auto;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
