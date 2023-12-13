@@ -1,5 +1,8 @@
 package com.example.demo.model;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("MemberInfoDto")
 public class MemberInfoDto {
 	
 	String mno;

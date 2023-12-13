@@ -1,8 +1,9 @@
-#headerNav{
+.header{
 	width: 800px;
 	height: 50px;
 	margin: 0 auto;
 	border: 1px solid black; 
+	text-align: center;
 }
 
 

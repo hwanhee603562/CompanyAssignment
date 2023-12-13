@@ -72,9 +72,6 @@ public class SendEmailService {
 		
 		String email = (String)session.getAttribute("emailNo");
 		
-		System.out.println("input : "+inputEmail);
-		System.out.println("session no : "+ email);
-		
 		// 이메일 인증정보 동일할 시
 		if( inputEmail.equals(email) ) return true;
 		

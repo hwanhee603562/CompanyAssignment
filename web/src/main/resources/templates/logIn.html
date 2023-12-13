@@ -9,25 +9,27 @@
 </head>
 <body>
 
-	<th:block th:replace="header :: headerFragment"></th:block>
+	<th:block th:replace="~{header :: headerFragment}"></th:block>
 	
 	<div class="wrap">
 	
+
 		<h2> 로그인 </h2>
 	
-		<form>
+		<form name="loginInfo">
 			
 			<div class="inputBox">
 				<div>
-					<div>아이디<input type="text"></div>
-					<div>비밀번호<input type="text"></div>
+					<div>아이디 <span class="col1"><input type="text" name="mid"></span> </div>
+					<div>비밀번호 <span class="col2"><input type="text" name="mpwd"></span> </div>
 				</div>
 				<div>
-					<input type="button" value="로그인">
+						
 				</div>
 			</div>
 			
 		</form>
+	
 		
 	</div>
 

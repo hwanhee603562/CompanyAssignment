@@ -2,9 +2,11 @@
 
 // 이메일 인증 상태변수
 let mailCheckState = false;
+// 아이디 중복검사 상태변수
+let idCheckState = false;
 
 
-// 이메일 인증 버튼 클릭 시
+// 이메일 인증
 function sendEmail(){
 	
 	// 이메일 유효성 검사
@@ -108,7 +110,6 @@ function checkEmailNo(){
 				
 				document.querySelector('.outputEmail').innerHTML = ``;
 				
-				
 			} else {
 				
 				alert( '이메일 인증에 실패하였습니다' )
@@ -125,26 +126,58 @@ function checkEmailNo(){
 }
 
 
-// 회원가입 버튼 클릭 시
+// 아이디 중복검사
+function checkId(){
+	
+	/* 유효성 검사 */
+	if( document.memberInfo.mid.value == '' ){
+		alert('아이디를 입력하십시오');
+		return false;
+	}
+	
+	/* 아이디 중복검사 */
+	$.ajax({
+		url:"/checkId",
+		method:"post",
+		data: { mid: document.memberInfo.mid.value },
+		success : result =>{
+			
+			if(result){
+				alert('사용가능한 아이디입니다');
+				idCheckState = true;
+			} else {
+				alert('중복된 아이디입니다');
+			}
+
+		},
+		error : e =>{
+			console.log(e);
+		}
+	});
+	
+}
+
+
+// 회원가입
 function submit(){
 	
 	let formData = $('#memberInfo').serialize();
 	
 	/* 유효성 검사 */
 	if( document.memberInfo.mname.value == '' ){
-		alert('이름을 입력해주십시오');
+		alert('이름을 입력하십시오');
 		return false;
 	}
-	if( document.memberInfo.mid.value == '' ){
-		alert('아이디를 입력해주십시오');
+	if( !idCheckState ){
+		alert('아이디 중복검사를 진행하십시오');
 		return false;
 	}
 	if( document.memberInfo.mpwd.value == '' ){
-		alert('비밀번호를 입력해주십시오');
+		alert('비밀번호를 입력하십시오');
 		return false;
 	}
 	if( document.memberInfo.checkPwd.value == '' ){
-		alert('비밀번호 확인란을 입력해주십시오');
+		alert('비밀번호 확인란을 입력하십시오');
 		return false;
 	}
 	if( document.memberInfo.mpwd.value != document.memberInfo.checkPwd.value ){
@@ -177,11 +210,17 @@ function submit(){
 		}
 	});
 	
-
-	
 }
 
+// (중복검사완료된) 아이디 변경 시 아이디 중복검사상태 변경
+function changeIdState(){
+	idCheckState = false;
+}
 
+// (인증완료된) 이메일 변경 시 이메일 인증상태 변경
+function changeEmailState(){
+	mailCheckState = false;
+}
 
 
 

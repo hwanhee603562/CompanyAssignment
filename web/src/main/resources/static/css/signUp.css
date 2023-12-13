@@ -7,10 +7,15 @@
 	border-right: 1px solid #e8e8e8; 
 	margin: 0 auto;
 }
-
+.postHeader{
+	width: 100px;
+	margin: 0 auto;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
 
 .inputWrap{
-	padding-left: 186px;
+	padding-left: 151px;
 }
 
 
@@ -67,6 +72,7 @@
 
 
 .buttonBox{
+	width: 69px;
 	margin: 0 auto;
 }
 
@@ -87,6 +93,9 @@
 
 
 
+.idBtn{
+	padding-left: 30px;
+}
 .emailBtn{
 	padding-left: 30px;
 }
@@ -94,17 +103,17 @@
 .buttonBox{
 	margin: 0 auto;
 }
-.postHeader{
-	width: 100px;
-	margin: 0 auto;
-	padding-top: 30px;
-	padding-bottom: 30px;
+
+
+
+.idBox{
+	display: flex;
 }
-
-
 .emailBox{
 	display: flex;
 }
+
+
 
 
 

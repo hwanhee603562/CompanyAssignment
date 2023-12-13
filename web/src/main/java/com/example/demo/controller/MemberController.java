@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.model.MemberInfoDto;
@@ -34,6 +35,14 @@ public class MemberController {
 		return "logIn";
 	}
 	
+	// 아이디 중복검사
+	@PostMapping( "/checkId" )
+	@ResponseBody
+	public boolean checkId( @RequestParam String mid ) {
+		
+		return memberService.checkId( mid );
+		
+	}
 	
 	// 회원가입
 	@PostMapping( "/postMember" )
@@ -44,8 +53,14 @@ public class MemberController {
 	    
 	}
 	
-	
-	
+	// 로그인
+	@PostMapping( "/logIn" )
+	@ResponseBody
+	public boolean logIn( @RequestParam String mid, @RequestParam String mpwd ) {
+		
+		return memberService.logIn( mid, mpwd );
+				
+	}
 	
 	
 	

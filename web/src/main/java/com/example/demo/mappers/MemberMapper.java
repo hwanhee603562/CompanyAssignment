@@ -14,6 +14,8 @@ public interface MemberMapper {
 	// 파라미터 전달  ( @Param("text") String text )
 	List<MemberInfoDto> getMember();
 	
+	// 아이디 중복검사
+	Integer checkId( @Param("mid") String mid );
 	
 	// 회원가입
 	Integer postMember( 
@@ -22,7 +24,11 @@ public interface MemberMapper {
 			@Param("mpwd") String mpwd, 
 			@Param("memail") String memail );
 	
-	
+	// 로그인
+	MemberInfoDto logIn(
+			@Param("mid") String mid,
+			@Param("mpwd") String mpwd );
+			
 	
 	
 }

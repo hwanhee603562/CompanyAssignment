@@ -7,6 +7,13 @@
 	margin: 0 auto;
 }
 
+.wrap h2{
+	width: 129px;
+	margin: 0 auto;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
 .titleBox{
 	width: 650px;
 	padding-left: 30px;
