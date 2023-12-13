@@ -5,6 +5,7 @@
 <title>Insert title here</title>
 
 	<link th:href="@{/css/signUp.css}" rel="stylesheet" >
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 </head>
 <body>
@@ -15,33 +16,34 @@
 	
 		<h2 class="postHeader"> 회원가입 </h2>
 		
-		<form method="post" name="memberINfo" th:action="@{/postMember}" th:object="${MemberInfo}" th:csrf="${_csrf}">
+		<form name="memberInfo" >
 		
 			
 			<div class="inputWrap">
 				
-				<div class="nameBox"> 성명 <span class="inputNameBox"> <input type="text" name="mname"> </span> </div>
+				<div class="nameBox"> 성명 <span class="inputNameBox"> <input type="text" name="mname" maxlength="15"> </span> </div>
 				
-				<div> 아이디 <span class="inputIdBox"> <input type="text" name="mid"> </span> </div>
-				<div class="outputId"></div>
+				<div class="idBox"> 아이디 <span class="inputIdBox"> <input type="text" name="mid" maxlength="15"> </span> </div>
 				
-				<div> 비밀번호 <span class="inputPwdBox"> <input type="text" name="mpwd"> </span> </div>
-				<div class="outputPwd"></div>
+				<div class="pwdBox"> 비밀번호 <span class="inputPwdBox"> <input type="text" name="mpwd" maxlength="15"> </span> </div>
 				
-				<div> 비밀번호 확인 <span class="inputPwdCheckBox"> <input type="text"> </span> </div>
-				<div class="outputPwdCheck"></div>
+				<div class="pwdCheckBox"> 비밀번호 확인 <span class="inputPwdCheckBox"> <input type="text" name="checkPwd" maxlength="15"> </span> </div>
 				
-				<div> 이메일 <span class="inputEmailBox"> <input type="text" name="memail"> </span> </div>
+				<div class="emailBox">
+					<div> 이메일 <span class="inputEmailBox"> <input type="text" name="memail" maxlength="30"> </span> </div>
+					<div class="emailBtn"> <button type="button" onclick="sendEmail()">인증</button> </div>
+				</div>
 				<div class="outputEmail"></div>
 				
 				
 			</div>
+		</form>	
+		
+		<div class="buttonBox">		
+			<input type="button" onclick="submit()" value="회원가입">
+		</div>
 			
-			<div class="buttonBox">		
-				<input type="button" onclick="submit()" value="전송">
-			</div>
-			
-		</form>
+		
 	
 	</div>
 	

@@ -4,11 +4,24 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mappers.MemberMapper">
 
-  <select id="selectBlog" resultType="MemberService">
+	<!--  
+  <select id="getMember" resultType="MemberInfo">
     
-    <!-- 파라미터 인수  #{text} -->
+    파라미터 인수  #{text}
     SELECT * FROM member;
-    
+     
   </select>
+  -->
+  
+  
+  <!-- 회원가입 -->
+	<select id="postMember" resultType="Integer">
+    
+    	<!-- 파라미터 인수  #{text} -->
+	    INSERT INTO 
+	    member (mname, mid, mpwd, memail) 
+	    VALUES ( #{mname}, #{mid}, #{mpwd}, #{memail} )
+     	
+	</select>
   
 </mapper>

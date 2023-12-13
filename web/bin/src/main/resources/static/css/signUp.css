@@ -17,32 +17,19 @@
 .nameBox{
 	height: 50px;
 }
-.idBox{
-	height: 50px;
-}
-.pwdBox{
-	height: 50px;
-}
-.pwdCheckBox{
-	height: 50px;
-}
-
 
 .inputNameBox{
 	margin-left: 80px;
-
+	
 }
 .inputIdBox{
 	margin-left: 64px;
-
 }
 .inputPwdBox{
 	margin-left: 48px;
-
 }
 .inputPwdCheckBox{
 	margin-left: 11px;
-
 }
 .inputEmailBox{
 	margin-left: 64px;
@@ -87,10 +74,6 @@
 
 
 
-.emailBtn{
-	padding-left: 30px;
-}
-
 .buttonBox{
 	margin: 0 auto;
 }
@@ -101,10 +84,6 @@
 	padding-bottom: 30px;
 }
 
-
-.emailBox{
-	display: flex;
-}
 
 
 
