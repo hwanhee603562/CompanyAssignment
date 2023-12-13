@@ -22,7 +22,7 @@ public class SendEmailService {
 	@Autowired
 	HttpSession session;
 	
-	// 이메일 전송
+	// 이메일 전송	
 	@Transactional
 	public boolean sendEmail( @RequestBody String toEmail ) {
 		
