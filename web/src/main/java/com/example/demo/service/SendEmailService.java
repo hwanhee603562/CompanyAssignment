@@ -27,7 +27,7 @@ public class SendEmailService {
 	public boolean sendEmail( @RequestBody String toEmail ) {
 		
 		try {
-			
+
 			// 송신자 
 			message.setFrom("abb258@naver.com");
 			

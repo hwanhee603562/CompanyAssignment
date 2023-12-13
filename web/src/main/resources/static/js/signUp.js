@@ -24,7 +24,7 @@ function sendEmail(){
 	$.ajax({
 		url:"/sendEmail",
 		method:"post",
-		data: JSON.stringify({ toEmail: document.memberInfo.memail.value }) ,
+		data: { toEmail: document.memberInfo.memail.value } ,
 		success : result =>{
 			
 			// 이메일 전송 성공
@@ -98,7 +98,7 @@ function checkEmailNo(){
 	$.ajax({
 		url:"/checkEmail",
 		method:"post",
-		data: { 'emailNo' : emailNo },
+		data: { inputEemail: emailNo },
 		success : result =>{
 			
 			if( result ){
