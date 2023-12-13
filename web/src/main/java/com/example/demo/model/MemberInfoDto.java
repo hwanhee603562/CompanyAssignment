@@ -1,21 +1,23 @@
 package com.example.demo.model;
 
+import java.io.Serializable;
+
 import org.apache.ibatis.type.Alias;
 
 @Alias("MemberInfoDto")
-public class MemberInfoDto {
+public class MemberInfoDto implements Serializable{
 	
-	String mno;
-	String mname;
-	String mid;
-	String mpwd;
-	String memail;
+	private int mno;
+	private String mname;
+	private String mid;
+	private String mpwd;
+	private String memail;
 	
 	// 생성자
 	public MemberInfoDto() {
 		// TODO Auto-generated constructor stub
 	}
-	public MemberInfoDto(String mno, String mname, String mid, String mpwd, String memail) {
+	public MemberInfoDto(int mno, String mname, String mid, String mpwd, String memail) {
 		super();
 		this.mno = mno;
 		this.mname = mname;
@@ -24,13 +26,12 @@ public class MemberInfoDto {
 		this.memail = memail;
 	}
 	
-
 	// getter setter
-	public String getMno() {
+	public int getMno() {
 		return mno;
 	}
 
-	public void setMno(String mno) {
+	public void setMno(int mno) {
 		this.mno = mno;
 	}
 
@@ -65,13 +66,15 @@ public class MemberInfoDto {
 	public void setMemail(String memail) {
 		this.memail = memail;
 	}
-	
-	// toString
+
 	@Override
 	public String toString() {
-		return "MemberInfo [mno=" + mno + ", mname=" + mname + ", mid=" + mid + ", mpwd=" + mpwd + ", memail=" + memail
-				+ "]";
+		return "MemberInfoDto [mno=" + mno + ", mname=" + mname + ", mid=" + mid + ", mpwd=" + mpwd + ", memail="
+				+ memail + "]";
 	}
+	
+	
+	
 	
 	
 	

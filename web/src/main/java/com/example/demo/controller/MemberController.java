@@ -54,9 +54,9 @@ public class MemberController {
 	}
 	
 	// 로그인
-	@PostMapping( "/logIn" )
+	@PostMapping( "/checkMemberInfo" )
 	@ResponseBody
-	public boolean logIn( @RequestParam String mid, @RequestParam String mpwd ) {
+	public boolean logIn( String mid, String mpwd ) {
 		
 		return memberService.logIn( mid, mpwd );
 				

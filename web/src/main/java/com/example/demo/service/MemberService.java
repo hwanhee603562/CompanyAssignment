@@ -57,17 +57,16 @@ public class MemberService {
 	// 로그인
 	@Transactional
 	public boolean logIn( String mid, String mpwd ) {
-		
+
 		// DB 상 회원조회
 		MemberInfoDto member = memberMapper.logIn( mid, mpwd );
-		System.out.println(1111);
+		
 		// DB 상 등록된 회원일 경우
 		if( member != null ) {
 			
 			// 세션 저장
 			session.setAttribute("memberInfo", member);
-			System.out.println( "session : "+ (String)session.getAttribute("memberInfo"));
-			
+			System.out.println( "session : "+ (MemberInfoDto)session.getAttribute("memberInfo"));
 			
 			return true;
 		}
