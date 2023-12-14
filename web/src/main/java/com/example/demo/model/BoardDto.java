@@ -24,5 +24,4 @@ public class BoardDto {
 	private int mno;
 	private LocalDateTime bdate;
 	
-
 }

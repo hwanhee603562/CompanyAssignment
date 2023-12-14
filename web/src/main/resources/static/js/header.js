@@ -42,7 +42,6 @@ function logOut(){
 				alert('로그아웃 되었습니다')
 				
 			} else {
-				alert('11111')
 				return false;
 			}
 

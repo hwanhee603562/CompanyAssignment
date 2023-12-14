@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -39,9 +41,9 @@ public class BoardController {
 	// 게시글 등록
 	@PostMapping( "/postBoard" )
 	@ResponseBody
-	public boolean postBoard( @RequestBody BoardDto boardDto ) {
+	public boolean postBoard( @RequestBody Map<String, String> board ) {
 		
-		return boardService.postBoard( boardDto );
+		return boardService.postBoard( board );
 	}
 	
 	
@@ -62,9 +64,24 @@ public class BoardController {
 		return boardService.deleteBoard( bno );
 	}
 	
+	// 게시물 리스트 조회
+	@GetMapping( "/getBoardList" )
+	@ResponseBody
+	public boolean getBoardList( @RequestParam int page ) {
+		
+		return false;
+	}
+	
 	
 	
 	
 	
 	
 }
+
+
+
+
+
+
+

@@ -10,6 +10,7 @@ import com.example.demo.model.MemberInfoDto;
 import jakarta.servlet.http.HttpSession;
 
 @Service
+@Transactional
 public class MemberService {
 		
 	@Autowired
@@ -18,7 +19,6 @@ public class MemberService {
 	HttpSession session;
 
 	// 아이디 중복검사
-	@Transactional
 	public Boolean checkId( String mid ) {
 		
 		Integer result = memberMapper.checkId( mid );
@@ -36,7 +36,6 @@ public class MemberService {
 	}
 	
 	// 회원가입
-	@Transactional
 	public Boolean signUp( MemberInfoDto memberInfo ) {
 		
 		memberMapper.postMember(
@@ -51,7 +50,6 @@ public class MemberService {
 	}
 	
 	// 로그인
-	@Transactional
 	public MemberInfoDto logIn( String mid, String mpwd ) {
 
 		// DB 상 회원조회
@@ -72,7 +70,6 @@ public class MemberService {
 	}
 	
 	// 로그아웃
-	@Transactional
 	public boolean logOut() {
 		
 		try {
