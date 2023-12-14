@@ -18,12 +18,16 @@ function login(){
 			mid : document.loginInfo.mid.value,
 			mpwd : document.loginInfo.mpwd.value
 		} ,
+		async: false,
 		success : result =>{
 			
-			if( result ){
-				location.href = '/board';
+			if( result != null ){
+				
+				sessionStorage.setItem('member', JSON.stringify(result));
+				
 			} else {
 				alert( '아이디/비밀번호를 확인하십시오' )
+				return false;
 			}
 
 		},
@@ -31,6 +35,8 @@ function login(){
 			console.log(e);
 		}
 	});
+	
+	window.location.href = '/board';
 	
 }
 

@@ -3,10 +3,6 @@ package com.example.demo.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.mappers.MemberMapper;
 import com.example.demo.model.MemberInfoDto;
@@ -56,7 +52,7 @@ public class MemberService {
 	
 	// 로그인
 	@Transactional
-	public boolean logIn( String mid, String mpwd ) {
+	public MemberInfoDto logIn( String mid, String mpwd ) {
 
 		// DB 상 회원조회
 		MemberInfoDto member = memberMapper.logIn( mid, mpwd );
@@ -68,13 +64,46 @@ public class MemberService {
 			session.setAttribute("memberInfo", member);
 			System.out.println( "session : "+ (MemberInfoDto)session.getAttribute("memberInfo"));
 			
+			return member;
+		}
+		
+		return null;
+				
+	}
+	
+	// 로그아웃
+	@Transactional
+	public boolean logOut() {
+		
+		try {
+			
+			// 세션 삭제
+			session.removeAttribute("memberInfo");
 			return true;
+			
+		} catch (Exception e) {
+			System.out.println(e);
 		}
 		
 		return false;
-				
+		
 	}
 	
 	
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

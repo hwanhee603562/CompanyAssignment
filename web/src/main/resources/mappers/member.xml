@@ -36,7 +36,7 @@
 	<select id="logIn" resultType="com.example.demo.model.MemberInfoDto">
     
     	<!-- 파라미터 인수  #{text} -->
-	    SELECT * FROM member WHERE mid = #{mid} and mpwd = #{mpwd};
+	    SELECT m.mno, m.mname, m.mid FROM member m WHERE mid = #{mid} and mpwd = #{mpwd};
      	
 	</select>
   

@@ -56,10 +56,19 @@ public class MemberController {
 	// 로그인
 	@PostMapping( "/checkMemberInfo" )
 	@ResponseBody
-	public boolean logIn( String mid, String mpwd ) {
+	public MemberInfoDto logIn( String mid, String mpwd ) {
 		
 		return memberService.logIn( mid, mpwd );
 				
+	}
+	
+	// 로그아웃
+	@PostMapping( "/logOut" )
+	@ResponseBody
+	public boolean logOut() {
+			
+		return memberService.logOut();
+		
 	}
 	
 	

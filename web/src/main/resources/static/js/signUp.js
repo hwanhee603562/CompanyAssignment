@@ -188,7 +188,6 @@ function submit(){
 		alert('이메일 인증을 실시하시기 바랍니다');
 		return false;
 	}
-
 	
 	
 	/* 회원가입 */

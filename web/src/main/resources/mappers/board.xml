@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mappers.BoardMapper">
+
+  	<!-- 게시글 등록 -->
+	<select id="postBoard">
+    
+	    insert into board ( btitle, bcontent, mno ) values ( #{btitle}, #{bcontent}, #{mno} );
+     	
+	</select>
+  
+	<!-- 게시글 수정 -->
+	<select id="putBoard">
+    
+	    update board set btitle = #{btitle}, bcontent = #{bcontent} where bno = #{bno};
+     	
+	</select>
+  
+  	<!-- 게시글 삭제 -->
+  	<select id="deleteBoard">
+    
+	    delete from board where bno = #{bno};
+     	
+	</select>
+  
+  
+</mapper>
+
+
+
+
+
+
+

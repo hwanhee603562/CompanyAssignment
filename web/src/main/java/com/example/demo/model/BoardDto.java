@@ -1,30 +1,28 @@
 package com.example.demo.model;
 
-import java.io.Serializable;
+import java.time.LocalDateTime;
 
 import org.apache.ibatis.type.Alias;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Alias("MemberInfoDto")
+@Alias("BoardDto")
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter 
 @Setter
-@Builder
-public class MemberInfoDto implements Serializable{
+public class BoardDto {
 	
+	private int bno;
+	private String btitle;
+	private String bcontent;
 	private int mno;
-	private String mname;
-	private String mid;
-	private String mpwd;
-	private String memail;
+	private LocalDateTime bdate;
 	
 
 }

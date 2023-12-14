@@ -36,7 +36,13 @@
 	margin: 20px 30px;
 }
 
+.contentBox{
+	margin-top: 10px;
+}
 
+.titleBox div, .contentBox div{
+	margin-top: 10px;
+}
 
 
 
