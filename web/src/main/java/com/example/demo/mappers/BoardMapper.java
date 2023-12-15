@@ -1,11 +1,10 @@
 package com.example.demo.mappers;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-
-import com.example.demo.model.MemberInfoDto;
 
 @Mapper
 public interface BoardMapper {
@@ -25,6 +24,16 @@ public interface BoardMapper {
 	// 게시글 삭제
 	void deleteBoard( 
 			@Param("bno") int bno );
+	
+	// 게시글 조회
+	List<Map> getBoardList( 
+			@Param("startRow") int startRow ,
+			@Param("maxSize") int maxSize );
+	
+	// 게시글 사이즈 조회
+	Integer getBoardSize( 
+			@Param("startRow") int startRow ,
+			@Param("maxSize") int maxSize );
 	
 	
 }

@@ -36,7 +36,7 @@ function login(){
 		}
 	});
 	
-	window.location.href = '/board';
+	window.location.href = '/board?page=1';
 	
 }
 

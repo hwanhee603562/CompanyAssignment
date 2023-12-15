@@ -1,9 +1,11 @@
 package com.example.demo.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,9 +24,18 @@ public class BoardController {
 	BoardService boardService;
 	
 	// 게시판 렌더링
+		// + 게시물 리스트 조회
 	@GetMapping( "/board" )
-	public String board() {
-			
+	public String board( Model model, @RequestParam int page ) {
+
+		// 게시물 리스트 조회
+		List<Map> boardList = boardService.getBoardList(page);
+		int totalPageCount = boardService.getBoardSize(page);
+
+		// 모델 데이터 추가
+		model.addAttribute( "boardList", boardList );
+		model.addAttribute( "totalPageCount", totalPageCount );
+		
 		return "board";
 		
 	}
@@ -64,12 +75,12 @@ public class BoardController {
 		return boardService.deleteBoard( bno );
 	}
 	
-	// 게시물 리스트 조회
+	// 
 	@GetMapping( "/getBoardList" )
 	@ResponseBody
-	public boolean getBoardList( @RequestParam int page ) {
+	public List<Map> getBoardList( @RequestParam int page ) {
 		
-		return false;
+		return boardService.getBoardList( page );
 	}
 	
 	

@@ -25,6 +25,23 @@
      	
 	</select>
   
+  	<!-- 게시물 조회 -->
+  	<select id="getBoardList">
+    
+	    SELECT b.*, m.mname 
+	    FROM board b JOIN member m ON b.mno = m.mno 
+	    ORDER BY bdate desc 
+	    LIMIT #{startRow}, #{maxSize};
+     	
+	</select>
+
+	<!-- 게시물 사이즈 조회 -->
+	<select id="getBoardSize">
+
+		SELECT count(*) FROM board;
+
+	</select>
+  
   
 </mapper>
 

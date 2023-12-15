@@ -9,7 +9,7 @@ function updateHeader() {
         navElement.innerHTML = `
             <span onClick="logOut()" class="signUpBtn">로그아웃</span>
             <a href="/write"><span> 게시글 작성 </span></a>
-            <a href="/board"><span> 게시판 </span></a>`;
+            <a href="/board?page=1"><span> 게시판 </span></a>`;
             
     } else {
 		
@@ -17,7 +17,7 @@ function updateHeader() {
             <a href="/signUp"><span> 회원가입 </span></a>
             <a href="/logIn"><span> 로그인 </span></a>
             <a href="/write"><span> 게시글 작성 </span></a>
-            <a href="/board"><span> 게시판 </span></a>
+            <a href="/board?page=1"><span> 게시판 </span></a>
         `;
         
     }
@@ -51,7 +51,7 @@ function logOut(){
 		}
 	});
 	
-	window.location.href = '/board';
+	window.location.href = '/board?page=1';
 	
 }
 

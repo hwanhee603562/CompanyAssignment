@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.model.MemberInfoDto;
+import com.example.demo.service.BoardService;
 import com.example.demo.service.MemberService;
 
 
@@ -18,6 +19,8 @@ public class MemberController {
 
 	@Autowired
 	MemberService memberService;
+	@Autowired
+	BoardService boardService;
 	
 	
 	// 회원가입페이지 렌더링
@@ -70,6 +73,8 @@ public class MemberController {
 		return memberService.logOut();
 		
 	}
+	
+
 	
 	
 	
