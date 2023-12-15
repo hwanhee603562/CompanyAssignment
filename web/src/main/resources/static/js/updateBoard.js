@@ -1,28 +1,28 @@
 updateHeader();
 
-function postBoard(){
+function updateBoard(){
 	
-
 	// [기존] let formData = $('#memberInfo').serialize();
 	// [Controller 파라미터 전달 시 (Map) 사용]
 	let formData = {
         btitle: $("input[name=btitle]").val(),
-        bcontent: $("textarea[name=bcontent]").val()
+        bcontent: $("textarea[name=bcontent]").val(),
+        bno: new URLSearchParams(location.search).get('bno')
     };
 	
 	/* 게시글 등록 */
 	$.ajax({
-		url: "/postBoard",
-		method: "post",
+		url: "/putBoard",
+		method: "put",
 		data: JSON.stringify(formData),
 		contentType: "application/json",
 		async: false,
 		success: result => {
 			
 			if( result ){
-				alert('게시글 수정에 성공했습니다')
+				alert('게시글 등록에 성공했습니다')
 			} else {
-				alert('게시글 수정에 실패했습니다')
+				alert('게시글 등록에 실패했습니다')
 				return;
 			}
 			
@@ -37,4 +37,5 @@ function postBoard(){
 	
 }
 
-$('.buttonBox input[type="button"]').on('click', postBoard);
+
+$('.buttonBox input[type="button"]').on('click', updateBoard);

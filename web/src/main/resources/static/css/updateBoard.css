@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+.wrap{
+	width: 800px;
+	border-left: 1px solid #e8e8e8;
+	border-right: 1px solid #e8e8e8; 
+	margin: 0 auto;
+}
+
+.wrap h2{
+	width: 129px;
+	margin: 0 auto;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.titleBox{
+	width: 650px;
+	padding-left: 30px;
+}
+
+.inputTitle{
+	width: 727px;
+}
+
+.contentBox{
+	margin-left: 30px;
+}
+.inputContent{
+	width: 727px;
+	height: 540px;
+}
+
+
+.buttonBox{
+	margin: 20px 30px;
+}
+
+.contentBox{
+	margin-top: 10px;
+}
+
+.titleBox div, .contentBox div{
+	margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

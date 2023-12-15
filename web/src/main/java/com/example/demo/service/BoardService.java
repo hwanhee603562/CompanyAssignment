@@ -27,16 +27,17 @@ public class BoardService {
 	private final int MAXSIZE = 15;
 	
 	// 게시글 등록
+	// 기존 : BoardDto board => Map<String, String> board
 	public boolean postBoard( Map<String, String> board ) {
 		
 		try {
-			
+
 			boardMapper.postBoard( 
 					board.get("btitle"), 
-					board.get("bcontent").replace("/n", "<br/>"), 
+					board.get("bcontent").replace("\n", "<br/>"), 
 					((MemberInfoDto)session.getAttribute("memberInfo")).getMno() 
 				);
-			
+
 			return true;
 			
 		} catch (Exception e) {
@@ -51,7 +52,7 @@ public class BoardService {
 		
 		boardMapper.putBoard( boardDto.getBtitle(), boardDto.getBcontent(), boardDto.getBno() );
 		
-		return false;
+		return true;
 	}
 	
 	
@@ -60,7 +61,7 @@ public class BoardService {
 		
 		boardMapper.deleteBoard( bno );
 		
-		return false;
+		return true;
 	}
 	
 	
@@ -88,6 +89,26 @@ public class BoardService {
                 
 	}
 	
+	// 상세페이지 조회
+	public Map getDetailedBoard( int bno ) {
+		
+		Map memberInfo = boardMapper.getDetailedBoard( bno );
+		
+		// 조회자 == 작성자
+			// 조회자와 작성자가 동일할 경우 추후 삭제/수정 기능 가능토록함
+		if( session.getAttribute("memberInfo") != null
+				&& (int)memberInfo.get("mno") == ((MemberInfoDto)session.getAttribute("memberInfo")).getMno() ) {
+			
+			// view 기준 버튼 '수정' / '삭제' 버튼 생성O
+			memberInfo.put( "writer", true );
+		} else {
+			
+			// view 기준 버튼 '수정' / '삭제' 버튼 생성X
+			memberInfo.put( "writer", false );
+		}
+		
+		return memberInfo;
+	}
 	
 	
 }

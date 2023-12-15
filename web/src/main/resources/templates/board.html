@@ -21,30 +21,35 @@
 	    <h2> 게시판 </h2>
 	    
 	    <div class="tableBox">
+	    
 		    <table class="borderTalbe">
 		    
 		    	<tr>
-		    		<th class="borderNo"> 게시물 번호 </th>
+		    		<th class="borderNo"> 번호 </th>
 		    		<th class="borderTitle"> 제목 </th>
 		    		<th class="borderDate"> 작성일 </th>
 		    		<th class="writer"> 작성자 </th>
 		    	</tr>
-				<tr th:each="board : ${boardList}">
-					<td th:text="${board.bno}">  </td>
+				<tr th:each="board : ${boardList}"
+					th:onclick="'redirectDetailed(\'' + ${board.bno} + '\')'"
+					style="cursor: pointer;">
+					<td th:text="${board.bno}" class="col1"></td>
 					<td th:text="${board.btitle}"></td>
-					<td th:text="${#temporals.format(board.bdate, 'yyyy-MM-dd HH:mm')}">  </td>
+					<td th:text="${#temporals.format(board.bdate, 'yyyy-MM-dd HH:mm')}">
+					</td>
 					<td th:text="${board.mname}"></td>
 				</tr>
+				
 			</table>
+			
 		</div>
 		
 		
 		<div class="pageBtnBox">
-			<span th:if="${page != null and page > 1}"> <a
-				th:href="@{/board(page=${page - 1})}" th:text="<"> </a>
-			</span>
+			
+			<button class="beforeBtn" onclick="beforePage()" ><</button>
+			
 			<ul>
-				
 				
 				<li th:each="pageNumber : ${#numbers.sequence(1, totalPageCount)}">
 					<a th:href="@{/board(page=${pageNumber})}" th:text="${pageNumber}"></a>
@@ -52,9 +57,8 @@
 				
 			</ul>
 			
-			<span th:if="${page != null and page < totalPageCount}"> 
-				<a th:href="@{/board(page=${page + 1})}" th:text=">"> </a> 
-			</span>
+			<button class="afterBtn" th:onclick="'afterPage(' + ${totalPageCount} + ')'">></button>
+			
 		</div>
 
 	</div>

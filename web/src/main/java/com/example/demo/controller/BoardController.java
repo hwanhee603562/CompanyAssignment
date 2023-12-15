@@ -48,10 +48,45 @@ public class BoardController {
 		
 	}
 	
+	// 게시글 상세페이지 렌더링
+		// + 상세 페이지 조회
+	@GetMapping( "/detailedBoard" )
+	public String detailedBoard( Model model, @RequestParam int bno ) {
+		
+		// 상세 페이지 조회
+		Map boardInfo = boardService.getDetailedBoard( bno );
+		
+		// 모델 데이터 추가
+		model.addAttribute( "boardInfo", boardInfo );
+		
+		return "detailedBoard";
+		
+	}
+	
+	// 게시글 수정 렌더링
+	@GetMapping("/update")
+	public String update( Model model, @RequestParam int bno ) {
+		
+		// 게시글 상세 정보 조회
+		Map boardInfo = boardService.getDetailedBoard( bno );
+		
+		// view textarea 고려 줄바꿈 치환 후 렌더링
+		boardInfo.put(
+				"bcontent", 
+				((String) boardInfo.get("bcontent")).replace( "<br/>", "\n" ) );
+		
+		// 모델 데이터 추가
+		model.addAttribute( "boardInfo", boardInfo );
+		
+		return "updateBoard";
+
+	}
+	
 	
 	// 게시글 등록
 	@PostMapping( "/postBoard" )
 	@ResponseBody
+	
 	public boolean postBoard( @RequestBody Map<String, String> board ) {
 		
 		return boardService.postBoard( board );
@@ -75,13 +110,7 @@ public class BoardController {
 		return boardService.deleteBoard( bno );
 	}
 	
-	// 
-	@GetMapping( "/getBoardList" )
-	@ResponseBody
-	public List<Map> getBoardList( @RequestParam int page ) {
-		
-		return boardService.getBoardList( page );
-	}
+
 	
 	
 	

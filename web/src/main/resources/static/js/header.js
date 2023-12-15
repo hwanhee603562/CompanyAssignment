@@ -16,7 +16,6 @@ function updateHeader() {
         navElement.innerHTML = `
             <a href="/signUp"><span> 회원가입 </span></a>
             <a href="/logIn"><span> 로그인 </span></a>
-            <a href="/write"><span> 게시글 작성 </span></a>
             <a href="/board?page=1"><span> 게시판 </span></a>
         `;
         

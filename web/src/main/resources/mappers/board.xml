@@ -41,6 +41,15 @@
 		SELECT count(*) FROM board;
 
 	</select>
+	
+	<!-- 게시글 상세조회 -->
+	<select id="getDetailedBoard">
+
+		select * from board b join member m on b.mno = m.mno where bno = #{bno};
+
+	</select>
+
+	
   
   
 </mapper>

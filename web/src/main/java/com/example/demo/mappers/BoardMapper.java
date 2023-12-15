@@ -35,5 +35,9 @@ public interface BoardMapper {
 			@Param("startRow") int startRow ,
 			@Param("maxSize") int maxSize );
 	
+	// 게시글 상세조회
+	Map getDetailedBoard( 
+			@Param("bno") int bno );
+	
 	
 }

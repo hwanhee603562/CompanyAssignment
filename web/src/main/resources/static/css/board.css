@@ -15,26 +15,47 @@
 }
 
 .tableBox{
-	width: 600px;
+	width: 704px;
 	margin: 0 auto;
 }
 
+.borderNo{
+	width: 60px;
+}
+.borderTitle{
+	width: 348px;
+}
+.borderDate{
+	width: 185px;
+}
+.writer{
+	width: 90px;
+}
 
-	
 
-
+.borderTalbe th{
+	font-size: 20px;
+}
+.borderTalbe td{
+	text-align: center;
+}
 
 
 
 .pageBtnBox{
 	padding-right: 48px;	
+	display: flex;
+    align-items: center;
+    width: 131px;
+    margin: 0 auto;
 }
 ul {
 	list-style-type: none;
 	display: flex; /* 가로 정렬 */
 	justify-content: center;
 	align-items: center; 
-
+	margin-right: 40px;
+	
 }
 
 li {
